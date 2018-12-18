@@ -28,19 +28,18 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-import static pyi_programa_ana_maritza.VistaPrincipal.options;
 import pyi_programa_ana_maritza.algoritmos.Dijkstra;
 import pyi_programa_ana_maritza.algoritmos.Floyd;
 import pyi_programa_ana_maritza.algoritmos.Warshall;
-import pyi_programa_ana_maritza.interfaces.Dib;
+import pyi_programa_ana_maritza.utils.Dib;
 import pyi_programa_ana_maritza.modelos.Grafo;
-import pyi_programa_ana_maritza.utils.TareaSleep;
+import pyi_programa_ana_maritza.utils.Sleep;
 
 /**
  *
  * @author Dell
  */
-public class Main extends javax.swing.JFrame implements ActionListener {
+public class MainView extends javax.swing.JFrame implements ActionListener {
 
     //Declaracion de variables globales
     public PanelPersonalizado lienzo;
@@ -55,11 +54,12 @@ public class Main extends javax.swing.JFrame implements ActionListener {
     public Integer perm, permutacion[], menor, no, permutacionV[];
     public boolean activateDelNod = false;
     public static final String[] options = {"Dijkstra", "Floyd", "Warshall"};
+    public static final String[] opciones = {"Si", "No"};
 
     /**
      * Creates new form Main
      */
-    public Main() {
+    public MainView() {
         initComponents();
         init();
     }
@@ -167,6 +167,22 @@ public class Main extends javax.swing.JFrame implements ActionListener {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
 
+        String op = (String) JOptionPane.showInputDialog(MainView.this,
+                            "Opciones",
+                            "Modificar Nodos - Aristas",
+                            JOptionPane.QUESTION_MESSAGE,
+                            null,
+                            opciones,
+                            opciones[0]);
+
+                    switch (op) {
+                        case "Si":
+                            clickMouseRightSi();
+                            break;
+                        case "No":
+
+                            break;
+                    }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
@@ -255,7 +271,7 @@ public class Main extends javax.swing.JFrame implements ActionListener {
             if (grafo.exNodo(parser(de)) && grafo.exNodo(parser(a))) {
                 Dijkstra dij = new Dijkstra(grafo, parser(de), parser(a));
                 c[1] = dij.empezar();
-                TareaSleep hilo = new TareaSleep(grafo, lienzo, c);
+                Sleep hilo = new Sleep(grafo, lienzo, c);
                 hilo.start();
             } else {
                 JOptionPane.showMessageDialog(null, "El nombre de un nodo no es valido");
@@ -284,7 +300,7 @@ public class Main extends javax.swing.JFrame implements ActionListener {
             if (grafo.exNodo(parser(de)) && grafo.exNodo(parser(a))) {
                 Floyd floy = new Floyd(grafo, parser(de), parser(a));
                 c[1] = floy.empezar();
-                TareaSleep hilo = new TareaSleep(grafo, lienzo, c);
+                Sleep hilo = new Sleep(grafo, lienzo, c);
                 hilo.start();
             } else {
                 JOptionPane.showMessageDialog(null, "El nombre de un nodo no es valido");
@@ -313,7 +329,7 @@ public class Main extends javax.swing.JFrame implements ActionListener {
             if (grafo.exNodo(parser(de)) && grafo.exNodo(parser(a))) {
                 Warshall war = new Warshall(grafo, parser(de), parser(a));
                 c[1] = war.empezar();
-                TareaSleep hilo = new TareaSleep(grafo, lienzo, c);
+                Sleep hilo = new Sleep(grafo, lienzo, c);
                 hilo.start();
             } else {
                 JOptionPane.showMessageDialog(null, "El nombre de un nodo no es valido");
@@ -389,22 +405,7 @@ public class Main extends javax.swing.JFrame implements ActionListener {
                 if (me.getButton() == MouseEvent.BUTTON2) {
                 }
                 if (me.getButton() == MouseEvent.BUTTON3) {
-                    String opciones = (String) JOptionPane.showInputDialog(Main.this,
-                            "Opciones",
-                            "Modificar Nodos - Aristas",
-                            JOptionPane.QUESTION_MESSAGE,
-                            null,
-                            options,
-                            options[0]);
-
-                    switch (opciones) {
-                        case "Si":
-                            clickMouseRightSi(me);
-                            break;
-                        case "No":
-
-                            break;
-                    }
+                    
                 }
 
             }
@@ -424,7 +425,7 @@ public class Main extends javax.swing.JFrame implements ActionListener {
 
     }
 
-    public void clickMouseRightSi(MouseEvent evt) {
+    public void clickMouseRightSi() {
 
         String nod = JOptionPane.showInputDialog("Ingrese el nombre del nodo a eliminar");
         grafo.EliminarNodo(Integer.parseInt(nod));
@@ -604,20 +605,21 @@ public class Main extends javax.swing.JFrame implements ActionListener {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main().setVisible(true);
+                new MainView().setVisible(true);
             }
         });
     }

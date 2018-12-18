@@ -11,7 +11,7 @@ import pyi_programa_ana_maritza.PanelPersonalizado;
  * @author Dell
  */
 
-public class TareaSleep extends Thread{
+public class Sleep extends Thread{
     
     /**
      * Declaracion de variables
@@ -26,7 +26,7 @@ public class TareaSleep extends Thread{
      * @param lienzo
      * @param cad 
      */
-    public TareaSleep(Grafo arbol, PanelPersonalizado lienzo,String[] cad){
+    public Sleep(Grafo arbol, PanelPersonalizado lienzo,String[] cad){
         this.arbol = arbol;
         this.lienzo = lienzo;
         c=cad;

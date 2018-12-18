@@ -11,7 +11,7 @@ import pyi_programa_ana_maritza.PanelPersonalizado;
  * Hilos para tareas con sleep (retrazar tareas por un tiempo definido)
  * @author Dell
  */
-public class TareaSleep2 extends Thread{
+public class Sleep2 extends Thread{
     
     /**
      * Declaracion de variables
@@ -27,7 +27,7 @@ public class TareaSleep2 extends Thread{
      * @param lienzo
      * @param cad 
      */
-    public TareaSleep2(Grafo arbol,Grafo graf, PanelPersonalizado lienzo,String[] cad){
+    public Sleep2(Grafo arbol,Grafo graf, PanelPersonalizado lienzo,String[] cad){
         this.arbol = arbol;
         this.lienzo = lienzo;
         arbol2=graf;

@@ -18,7 +18,7 @@ public class Grafo implements Serializable{
         public boolean marcas[];
         public String salida;
         public Integer vel;
-        public LinkedList <NodoG> nodosA;
+        public LinkedList <Nodo> nodosA;
         public LinkedList<Arista> aristasA,aristasB;
 
         public int aux = 0;
@@ -47,7 +47,7 @@ public class Grafo implements Serializable{
          */
         public void setMA(){
             init();
-            for(NodoG no: nodosA){
+            for(Nodo no: nodosA){
                 mA[0][no.id] = mA[no.id][0] =no.id;
             }
             for(Arista aris:aristasA){
@@ -79,7 +79,7 @@ public class Grafo implements Serializable{
          * @param y 
          */
         public void InsertaNodo(Integer nodo,int x,int y){
-            NodoG no= new NodoG(nodo,x,y);
+            Nodo no= new Nodo(nodo,x,y);
             mA[0][nodo]=mA[nodo][0]=nodo;
             nodosA.add(no);
 
@@ -245,7 +245,7 @@ public class Grafo implements Serializable{
         }
 
         public void pintarze(Graphics g){
-            for(NodoG n:nodosA)
+            for(Nodo n:nodosA)
                 n.paint(g);
 
             for(Arista a:aristasA)
@@ -311,7 +311,7 @@ public class Grafo implements Serializable{
     public Integer [] getVectorNo(){
         Integer [] x=new Integer[noNodos+1];
         int p=0;
-        for(NodoG nodo:nodosA){
+        for(Nodo nodo:nodosA){
             x[p++]=nodo.id;
         }
         return x;

@@ -1,6 +1,6 @@
 package pyi_programa_ana_maritza.modelos;
 
-import pyi_programa_ana_maritza.interfaces.Dib;
+import pyi_programa_ana_maritza.utils.Dib;
 import java.awt.*;
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import java.io.Serializable;
  * Clase NodoG
  * @author Dell
  */
-public class NodoG implements Dib,Serializable {
+public class Nodo implements Dib,Serializable {
     
     /**
      * Declaracion de variables
@@ -25,7 +25,7 @@ public class NodoG implements Dib,Serializable {
      * @param xx
      * @param yy 
      */
-    public NodoG(int ca,int xx, int yy){
+    public Nodo(int ca,int xx, int yy){
         id=ca;
         x=xx;
         y=yy;

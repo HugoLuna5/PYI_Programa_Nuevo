@@ -1,4 +1,4 @@
-package pyi_programa_ana_maritza.interfaces;
+package pyi_programa_ana_maritza.utils;
 
 
 import java.awt.Graphics;

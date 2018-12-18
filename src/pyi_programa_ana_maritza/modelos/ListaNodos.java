@@ -5,14 +5,14 @@ package pyi_programa_ana_maritza.modelos;
  * Clase NodoLista
  * @author Dell
  */
-public class NodoLista {
+public class ListaNodos {
     /**
      * Declaracion de las variables
      */
     public int en;
     public int sal;
     public int prio;
-    public NodoLista sigNodo;
+    public ListaNodos sigNodo;
     
     /**
      * Constructor de la clase para inicializar las 
@@ -21,7 +21,7 @@ public class NodoLista {
      * @param s
      * @param prio 
      */
-    public NodoLista(int e,int s,int prio){
+    public ListaNodos(int e,int s,int prio){
         en=e;
         sal=s;
         this.prio=prio;

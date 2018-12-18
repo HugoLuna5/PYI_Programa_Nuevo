@@ -9,8 +9,8 @@ import javax.swing.UIManager.*;
  * @author Dell
  */
 public class Arista implements Serializable{
-    public NodoG noEn;
-    public NodoG noSal;
+    public Nodo noEn;
+    public Nodo noSal;
 
     
     /**
@@ -18,7 +18,7 @@ public class Arista implements Serializable{
      * @param in
      * @param out 
      */
-    public Arista(NodoG in,NodoG out){
+    public Arista(Nodo in,Nodo out){
         noEn=in;
         noSal=out;
     }

@@ -45,7 +45,7 @@ public class Cola {
      * Eliminar nodos
      * @return 
      */
-    public NodoLista desencolar(){
+    public ListaNodos desencolar(){
         return lista.deletePrimerNodo();
     }
 }

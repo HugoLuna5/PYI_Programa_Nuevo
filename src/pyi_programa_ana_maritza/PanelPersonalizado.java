@@ -1,8 +1,8 @@
 package pyi_programa_ana_maritza;
 
-import pyi_programa_ana_maritza.modelos.NodoG;
+import pyi_programa_ana_maritza.modelos.Nodo;
 import pyi_programa_ana_maritza.modelos.Grafo;
-import pyi_programa_ana_maritza.interfaces.Dib;
+import pyi_programa_ana_maritza.utils.Dib;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,7 +16,7 @@ import java.util.LinkedList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import pyi_programa_ana_maritza.modelos.Grafo;
-import pyi_programa_ana_maritza.modelos.NodoG;
+import pyi_programa_ana_maritza.modelos.Nodo;
 
 /**
  * Clase Lienzo que extiende propiedades de un Panel y eventos de Click
@@ -33,7 +33,7 @@ public class PanelPersonalizado extends Panel implements MouseMotionListener{
     public int c =0;
     public int xA,yA;
     public Grafo arbol;
-    public LinkedList<NodoG>nodos;
+    public LinkedList<Nodo>nodos;
     public Dib dibujandose=null;
     /**
      * Constructor de la clase

@@ -10,8 +10,8 @@ public class ListaLigada {
     /**
      * Declaracion de variables
      */
-    public NodoLista primer;
-    public NodoLista ultimo;
+    public ListaNodos primer;
+    public ListaNodos ultimo;
     
     /**
      * Contructor de la clase
@@ -28,13 +28,13 @@ public class ListaLigada {
      * @param peso 
      */
     public void insertaNodos(int in,int out,int peso){
-        NodoLista aux,act,ant;
+        ListaNodos aux,act,ant;
         ant = act = primer;
         while(act!=null && act.prio<=peso){
             ant=act;
             act=act.sigNodo;
         }
-        aux=new NodoLista(in,out,peso);
+        aux=new ListaNodos(in,out,peso);
         if (ant == null || ant == act)
         {
             aux.sigNodo = ant;
@@ -60,12 +60,12 @@ public class ListaLigada {
      * Eliminar primer nodo
      * @return 
      */
-    public NodoLista deletePrimerNodo(){
+    public ListaNodos deletePrimerNodo(){
     	if (esVacia()){
     		return null;
     	}
 
-    	NodoLista objetoEliminado=primer;
+    	ListaNodos objetoEliminado=primer;
 
     	if(primer==ultimo){
     		primer = ultimo = null;
