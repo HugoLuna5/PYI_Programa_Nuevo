@@ -108,4 +108,23 @@ public class Arista implements Serializable{
     public int  getPeso(){
         return Integer.parseInt(distancia());
     }
+    
+    public Nodo getNoEn() {
+        return noEn;
+    }
+
+    public void setNoEn(Nodo noEn) {
+        this.noEn = noEn;
+    }
+
+    public Nodo getNoSal() {
+        return noSal;
+    }
+
+    public void setNoSal(Nodo noSal) {
+        this.noSal = noSal;
+    }
+    
+    
+    
 }

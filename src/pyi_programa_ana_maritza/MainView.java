@@ -80,6 +80,7 @@ public class MainView extends javax.swing.JFrame implements ActionListener {
         btnConectar = new javax.swing.JButton();
         btnEjecutar = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
+        btnEliminarArista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -125,6 +126,14 @@ public class MainView extends javax.swing.JFrame implements ActionListener {
             }
         });
 
+        btnEliminarArista.setBackground(new java.awt.Color(255, 255, 255));
+        btnEliminarArista.setText("ELIMINAR ARISTA");
+        btnEliminarArista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarAristaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout contenedorBotonesLayout = new javax.swing.GroupLayout(contenedorBotones);
         contenedorBotones.setLayout(contenedorBotonesLayout);
         contenedorBotonesLayout.setHorizontalGroup(
@@ -140,7 +149,10 @@ public class MainView extends javax.swing.JFrame implements ActionListener {
                             .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnConectar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnEjecutar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnEliminarArista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorBotonesLayout.createSequentialGroup()
+                                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)))))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         contenedorBotonesLayout.setVerticalGroup(
@@ -150,13 +162,15 @@ public class MainView extends javax.swing.JFrame implements ActionListener {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
+                .addComponent(btnEliminarArista, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnConectar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(34, 34, 34)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(391, Short.MAX_VALUE))
+                .addContainerGap(405, Short.MAX_VALUE))
         );
 
         getContentPane().add(contenedorBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -344,6 +358,24 @@ public class MainView extends javax.swing.JFrame implements ActionListener {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnEliminarAristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAristaActionPerformed
+        // TODO add your handling code here:
+        
+         String nodoInicio = JOptionPane.showInputDialog("Nodo inicio: ");
+            
+         String nodoDestino = JOptionPane.showInputDialog("Nodo destino:");
+            
+         
+         int p = Integer.parseInt(nodoInicio);
+         int q = Integer.parseInt(nodoDestino);
+         
+         grafo.EliminarArista(p, q);
+        lienzo.paint(lienzo.getGraphics());
+         
+         
+        
+    }//GEN-LAST:event_btnEliminarAristaActionPerformed
 
     /**
      * Inicializar los componentes en la vista
@@ -628,6 +660,7 @@ public class MainView extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JButton btnConectar;
     private javax.swing.JButton btnEjecutar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnEliminarArista;
     private javax.swing.JButton btnExit;
     private javax.swing.JPanel contenedor;
     private javax.swing.JPanel contenedorBotones;

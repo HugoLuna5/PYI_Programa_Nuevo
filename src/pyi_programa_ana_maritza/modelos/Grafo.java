@@ -112,6 +112,25 @@ public class Grafo implements Serializable{
             
         }
         
+        
+         public void EliminarArista(int p, int q){
+           
+            
+            Arista arista = new Arista(nodosA.get(p-1),nodosA.get(q-1));
+            mA[p][q] = mA[q][p]=999999;
+            
+            for (int i = 0; i < aristasA.size(); i++) {
+                if(aristasA.get(i).getNoEn() == arista.getNoEn() && aristasA.get(i).getNoSal() == arista.getNoSal()){
+                    aristasA.remove(i);
+                }
+                
+            }
+            
+            
+        }
+        
+        
+        
         /**
          * Insertar arista
          * @param p
